@@ -1,8 +1,25 @@
+from pathlib import Path
 import pandas as pd
 
-# 1. Load data
-df = pd.read_csv("../Salary/data/ai_jobs_market_2025_2026.csv")
+# 1. Dynamically get the directory where feature_engineer.py lives
+BASE_DIR = Path(__file__).resolve().parent
 
+# 2. Path to the data folder and file right next to it
+DATA_PATH = BASE_DIR / "data" / "ai_jobs_market_2025_2026.csv"
+
+def load_data():
+    """
+    Generically loads the dataset from the absolute path calculated at runtime.
+    """
+    if not DATA_PATH.exists():
+        raise FileNotFoundError(
+            f"Could not find the dataset. Please ensure your folder structure matches. "
+            f"Looked here: {DATA_PATH.resolve()}"
+        )
+    
+    df = pd.read_csv(DATA_PATH)
+    return df
+df = load_data()
 # 2. Extract and find top 93 skills (excluding Linux)
 df["skills_list"] = df["required_skills"].str.split("|")
 skills_exploded = df.explode("skills_list")
@@ -51,6 +68,7 @@ columns_to_drop = [
     "Risk Management",
     "Risk Assessment",
     "System Design",
+    "Distributed Systems",
     "Rag",
     "Mlops",
     "Fine_Tune",
@@ -58,5 +76,6 @@ columns_to_drop = [
 df = df.drop(columns=columns_to_drop, errors="ignore")
 
 # 6. Save back to a new CSV
-df.to_csv("../Salary/data/cleaned_data.csv", index=False)
+OUTPUT_PATH = BASE_DIR / "data" / "cleaned_data.csv"
+df.to_csv(OUTPUT_PATH, index=False)
 print("Feature engineering complete!")
