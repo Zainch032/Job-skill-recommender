@@ -1,6 +1,8 @@
 # 🧠 AI Jobs Skill Recommender & Market Analysis
 ### 2025–2026 AI Job Market · Python · Pandas · Scikit-learn · Streamlit
 
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://job-skill-recommender-032.streamlit.app/)
+
 > End-to-end data science project — from raw CSV to interactive web app — uncovering what skills, experience levels, and market forces actually drive AI salaries.
 
 ---
@@ -125,6 +127,14 @@ Raw CSV → feature_engineer.py → cleaned_data.csv
 ```
 
 ---
+
+## 🚀 Live Demo
+
+**Try it now:** [https://job-skill-recommender-032.streamlit.app/](https://job-skill-recommender-032.streamlit.app/)
+
+---
+
+## 🏃 Run Locally
 
 ```bash
 pip install -r requirements.txt && python feature_engineer.py && streamlit run app.py
