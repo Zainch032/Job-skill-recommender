@@ -11,7 +11,7 @@
 
 ## 🖥️ App Preview
 
-![AI Engineer — Skill Recommender Tab](Screenshot%202026-06-25%20234521.png)
+![AI Engineer — Skill Recommender Tab](image.png)
 
 > **AI Engineer** · $159,859 avg · Docker 87% · Cloud 82% · LLM APIs 81%
 

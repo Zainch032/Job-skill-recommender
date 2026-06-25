@@ -22,7 +22,7 @@ __pycache__/
 dist/
 build/
 *.egg-info/
-
+image.png
 # ── Environment Variables ─────────────────────────────────────────────────────
 .env
 *.env
@@ -36,4 +36,3 @@ build/
 # ── OS Artifacts ─────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-Screenshot 2026-06-25 234521.png
