@@ -2,8 +2,20 @@
 ### 2025–2026 AI Job Market · Python · Pandas · Scikit-learn · Streamlit
 
 [![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://job-skill-recommender-032.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)]()
 
 > End-to-end data science project — from raw CSV to interactive web app — uncovering what skills, experience levels, and market forces actually drive AI salaries.
+
+---
+
+## 🖥️ App Preview
+
+![AI Engineer — Skill Recommender Tab](Screenshot%202026-06-25%20234521.png)
+
+> **AI Engineer** · $159,859 avg · Docker 87% · Cloud 82% · LLM APIs 81%
+
+*Tab 1 — Skill Recommender: select any AI job title to get top required skills with frequency bars, avg salary, posting count, and cosine similarity matched roles.*
 
 ---
 
@@ -17,7 +29,26 @@ The AI job market is noisy. Candidates waste months learning the wrong skills, a
 ---
 
 ## 📦 Dataset
+
 1,500+ real job postings · Fields: `job_title`, `required_skills`, `annual_salary_usd`, `experience_level`, `years_of_experience`, `company_size`, `industry`, `remote_work`, `demand_score`, `demand_growth_yoy_pct`, `ai_salary_premium_pct`
+
+---
+
+## ⚙️ Full Pipeline Flow
+
+```
+Raw CSV → feature_engineer.py → cleaned_data.csv
+              ↓                        ↓
+         analysis.py              model.py
+         (16+ EDA charts)    (profiles + similarity)
+              ↓                        ↓
+                    app.py (Streamlit)
+              ┌─────────────────────────────┐
+              │  Tab 1: Skill Recommender   │
+              │  Tab 2: Market Analysis     │
+              │         (7 sections)        │
+              └─────────────────────────────┘
+```
 
 ---
 
@@ -60,7 +91,6 @@ The AI job market is noisy. Candidates waste months learning the wrong skills, a
 - 2×2 bar grid: demand score, YoY growth, benefits, AI premium — all by AI job title
 - **Lead ML Engineers** peak at **$310k**, **AI Agent Developers** at **$300k**
 - **RAG Engineer** and **NLP Engineer** show the fastest YoY growth — emerging bottlenecks
-- **AI Agent Developers**: top-3 demand + high growth, yet near-bottom for benefits
 
 ### Job Category × Industry
 - Cross-tabulated `job_category × industry` (% by row) → `PuOr` heatmap
@@ -103,27 +133,9 @@ Content-based recommender using skill vectors (`model.py`):
 
 **Sample output:**
 ```
-Data Scientist · $192,450 avg · 87 postings
-Skills : Python 94% | SQL 78% | Statistics 65% | ML 61% | Cloud 54%
-Similar: ML Engineer 91% | AI Researcher 84% | Data Engineer 79%
-```
-
----
-
-## ⚙️ Full Pipeline Flow
-
-```
-Raw CSV → feature_engineer.py → cleaned_data.csv
-              ↓                        ↓
-         analysis.py              model.py
-         (16+ EDA charts)    (profiles + similarity)
-              ↓                        ↓
-                    app.py (Streamlit)
-              ┌─────────────────────────────┐
-              │  Tab 1: Skill Recommender   │
-              │  Tab 2: Market Analysis     │
-              │         (7 sections)        │
-              └─────────────────────────────┘
+Senior ML Engineer · $247,953 avg · 64 postings
+Top Skills : System Design 81% | Distributed Systems 79% | Python 78%
+Similar    : ML Engineer 56% match | AI Solutions Architect 56% match
 ```
 
 ---
@@ -137,7 +149,9 @@ Raw CSV → feature_engineer.py → cleaned_data.csv
 ## 🏃 Run Locally
 
 ```bash
-pip install -r requirements.txt && python feature_engineer.py && streamlit run app.py
+pip install -r requirements.txt
+python feature_engineer.py
+streamlit run app.py
 ```
 
 *Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Streamlit*
