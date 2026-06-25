@@ -1,10 +1,15 @@
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from pathlib import Path
+import pandas as pd
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "data" / "cleaned_data.csv"
 
 def load_dataset():
-   df = pd.read_csv("../Salary/data/cleaned_data.csv")
-   return df
+    df = pd.read_csv(DATA_PATH)
+    return df
 
 def build_profiles(df):
     available = list(df.columns[26:])
