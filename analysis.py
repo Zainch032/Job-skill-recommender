@@ -386,7 +386,7 @@ def plot_category_avg_salary(df: pd.DataFrame) -> plt.Figure:
     ax.set_xlabel("Job Category")
     ax.set_ylabel("Avg Annual Salary (USD)")
     ax.set_ylim(160000,260000)
-    plt.xticks(rotation=45, ha="right")
+    plt.xticks(rotation=80, ha="right")
     plt.tight_layout()
     return fig
 
