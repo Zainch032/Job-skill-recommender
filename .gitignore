@@ -36,3 +36,5 @@ build/
 # ── OS Artifacts ─────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+
+.devcontainer
